@@ -15,14 +15,15 @@ public class WebDriverSettings {
     public void startBrowser() {
         //System.setProperty("webdriver.chrome.driver",System.getenv("CHROME_DRIVER"));
         chromeDriver = new ChromeDriver();
-        chromeDriver.manage().window().maximize();
+//        chromeDriver.manage().window().maximize();
         chromeDriver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
         chromeDriver.manage().timeouts().setScriptTimeout(40, TimeUnit.SECONDS);
         chromeDriver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
     }
 
     @AfterEach
-    public void closeTest() {
-//        chromeDriver.quit();
+    public void closeTest() throws InterruptedException {
+        Thread.sleep(1000);
+        chromeDriver.quit();
     }
 }

@@ -13,6 +13,10 @@ public class PageObjectGlad {
     private WebElement searchButton;
     private List<WebElement> result;
 
+    public List<WebElement> getResult() {
+        return result;
+    }
+
     public PageObjectGlad(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;
         searchField = chromeDriver.findElement(By.cssSelector("div.a4bIc > input.gLFyf.gsfi"));
@@ -23,5 +27,9 @@ public class PageObjectGlad {
         searchField.click();
         searchField.sendKeys(query);
         searchButton.click();
+    }
+
+    public void getListElement() {
+        result = chromeDriver.findElements(By.cssSelector("h3.LC20lb.DKV0Md"));
     }
 }
