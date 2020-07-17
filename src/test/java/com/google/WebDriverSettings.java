@@ -22,8 +22,7 @@ public class WebDriverSettings {
     }
 
     @AfterEach
-    public void closeTest() throws InterruptedException {
-        Thread.sleep(1000);
+    public void closeTest() {
         chromeDriver.quit();
     }
 }
