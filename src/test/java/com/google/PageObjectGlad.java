@@ -15,11 +15,13 @@ public class PageObjectGlad {
 
     public PageObjectGlad(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;
-        searchField = chromeDriver.findElement(By.cssSelector("#tsf > div:nth-child(2) > div.A8SBwf > div.RNNXgb > div > div.a4bIc > input"));
+        searchField = chromeDriver.findElement(By.cssSelector("div.a4bIc > input.gLFyf.gsfi"));
+        searchButton = chromeDriver.findElement(By.cssSelector("div.tfB0Bf > center > input.gNO89b"));
     }
 
     public void find(String query) {
         searchField.click();
         searchField.sendKeys(query);
+        searchButton.click();
     }
 }
