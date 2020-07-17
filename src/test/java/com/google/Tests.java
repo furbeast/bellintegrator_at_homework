@@ -17,4 +17,15 @@ public class Tests extends WebDriverSettings {
 
         Assertions.assertTrue(gladPO.getResult().size() > 3);
     }
+
+    @Test
+    public void searchGladWiki() {
+        chromeDriver.get("https://www.google.com/");
+        PageObjectGlad gladPO = new PageObjectGlad(chromeDriver);
+
+        gladPO.find("гладиолус");
+        gladPO.getListElement();
+
+        Assertions.assertTrue(gladPO.getResult().stream().anyMatch(x -> x.getText().contains("Гладиолус — Википедия")));
+    }
 }
