@@ -6,9 +6,12 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class PageObjectGlad {
+public class PageObjectGoogleWithSearch {
 
-    private WebDriver chromeDriver;
+    private String selectorSearchField = "//input[@name=\"q\"]";
+    private String selectorSearchButton = "//input[@class=\"gNO89b\"]";
+
+    private WebDriver driver;
     private WebElement searchField;
     private WebElement searchButton;
     private List<WebElement> result;
@@ -17,10 +20,10 @@ public class PageObjectGlad {
         return result;
     }
 
-    public PageObjectGlad(WebDriver chromeDriver) {
-        this.chromeDriver = chromeDriver;
-        searchField = chromeDriver.findElement(By.xpath("//input[@name=\"q\"]"));
-        searchButton = chromeDriver.findElement(By.xpath("//input[@class=\"gNO89b\"]"));
+    public PageObjectGoogleWithSearch(WebDriver driver) {
+        this.driver = driver;
+        searchField = driver.findElement(By.xpath(selectorSearchField));
+        searchButton = driver.findElement(By.xpath(selectorSearchButton));
     }
 
     public void find(String query) {
@@ -30,6 +33,6 @@ public class PageObjectGlad {
     }
 
     public void getListElement() {
-        result = chromeDriver.findElements(By.cssSelector("h3.LC20lb.DKV0Md"));
+        result = driver.findElements(By.cssSelector("h3.LC20lb.DKV0Md"));
     }
 }
