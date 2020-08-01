@@ -19,8 +19,8 @@ public class PageObjectGlad {
 
     public PageObjectGlad(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;
-        searchField = chromeDriver.findElement(By.cssSelector("div.a4bIc > input.gLFyf.gsfi"));
-        searchButton = chromeDriver.findElement(By.cssSelector("div.tfB0Bf > center > input.gNO89b"));
+        searchField = chromeDriver.findElement(By.xpath("//input[@name=\"q\"]"));
+        searchButton = chromeDriver.findElement(By.xpath("//input[@class=\"gNO89b\"]"));
     }
 
     public void find(String query) {
