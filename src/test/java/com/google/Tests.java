@@ -1,29 +1,34 @@
 package com.google;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class Tests extends WebDriverSettings {
 
+    private String linkName = "https://www.google.com/";
+
     @Test
     public void searchGladThree(){
-        chromeDriver.get("https://www.google.com/");
-        PageObjectGoogleWithSearch gladPO = new PageObjectGoogleWithSearch(chromeDriver);
+
+        PageObjectGoogleWithSearch gladPO = new PageObjectGoogleWithSearch(chromeDriver, linkName);
+        Steps.checkOpenSite(chromeDriver, "google");
 
         gladPO.find("гладиолус");
-        gladPO.getListElement();
+        Steps.checkSearchLine(chromeDriver, "гладиолус");
 
-        Assertions.assertTrue(gladPO.getResult().size() > 3);
+        Steps.checkMoreThreeResult(gladPO);
     }
 
     @Test
     public void searchGladWiki() {
-        chromeDriver.get("https://www.google.com/");
-        PageObjectGoogleWithSearch gladPO = new PageObjectGoogleWithSearch(chromeDriver);
+
+        PageObjectGoogleWithSearch gladPO = new PageObjectGoogleWithSearch(chromeDriver, linkName);
+        Steps.checkOpenSite(chromeDriver, "google");
 
         gladPO.find("гладиолус");
-        gladPO.getListElement();
+        Steps.checkSearchLine(chromeDriver, "гладиолус");
 
-        Assertions.assertTrue(gladPO.getResult().stream().anyMatch(x -> x.getText().contains("Гладиолус — Википедия")));
+        Steps.checkResultWiki(gladPO, "Гладиолус — Википедия");
     }
 }
