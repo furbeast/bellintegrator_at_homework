@@ -9,7 +9,7 @@ public class Tests extends WebDriverSettings {
     private String linkName = "https://www.google.com/";
 
     @Test
-    public void searchGladThree(){
+    public void testTask1_1(){
 
         PageObjectGoogleWithSearch gladPO = new PageObjectGoogleWithSearch(chromeDriver, linkName);
         Steps.checkOpenSite(chromeDriver, "google");
@@ -21,7 +21,7 @@ public class Tests extends WebDriverSettings {
     }
 
     @Test
-    public void searchGladWiki() {
+    public void testTask1_2() {
 
         PageObjectGoogleWithSearch gladPO = new PageObjectGoogleWithSearch(chromeDriver, linkName);
         Steps.checkOpenSite(chromeDriver, "google");
