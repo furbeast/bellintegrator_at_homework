@@ -17,7 +17,7 @@ public class Tests extends WebDriverSettings {
         gladPO.find("гладиолус");
         Steps.checkSearchLine(chromeDriver, "гладиолус");
 
-        Steps.checkMoreThreeResult(gladPO);
+        Steps.checkMoreThreeResult(chromeDriver, gladPO);
     }
 
     @Test
@@ -29,6 +29,6 @@ public class Tests extends WebDriverSettings {
         gladPO.find("гладиолус");
         Steps.checkSearchLine(chromeDriver, "гладиолус");
 
-        Steps.checkResultWiki(gladPO, "Гладиолус — Википедия");
+        Steps.checkResultWiki(chromeDriver, gladPO, "Гладиолус — Википедия");
     }
 }

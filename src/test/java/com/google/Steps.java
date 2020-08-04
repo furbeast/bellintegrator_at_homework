@@ -9,23 +9,45 @@ public class Steps {
 
     @Step("Шаг 1. Проверка что открылся {linkName}")
     public static void checkOpenSite(WebDriver driver, String linkName) {
-        Assertions.assertTrue(driver.getCurrentUrl().contains(linkName));
+        if (driver.getCurrentUrl().contains(linkName)) {
+            Assertions.assertTrue(true);
+        } else {
+            CustomUtils.getScreen(driver);
+            Assertions.fail("Ошибка при открытии страницы: " + linkName);
+        }
     }
 
     @Step("Шаг 2. Поиск слова {searchLine}")
     public static void checkSearchLine(WebDriver driver, String searchLine) {
-        Assertions.assertTrue(driver.getTitle().contains(searchLine));
+        if (driver.getTitle().contains(searchLine)) {
+            Assertions.assertTrue(true);
+        } else {
+            CustomUtils.getScreen(driver);
+            Assertions.fail("Не найдено: " + searchLine);
+        }
     }
 
     @Step("Шаг 3. Убедится что результатов больше трёх")
-    public static void checkMoreThreeResult(PageObjectGoogleWithSearch searchPO) {
+    public static void checkMoreThreeResult(WebDriver driver, PageObjectGoogleWithSearch searchPO) {
         searchPO.getListElement();
-        Assertions.assertTrue(searchPO.getResult().size() > 3);
+
+        if (searchPO.getResult().size() > 3) {
+            Assertions.assertTrue(true);
+        } else {
+            CustomUtils.getScreen(driver);
+            Assertions.fail("Результат меньше 3");
+        }
     }
 
     @Step("Шаг 3. Убедится что есть ссылка \"{linkName}\"")
-    public static void checkResultWiki (PageObjectGoogleWithSearch searchPO, String linkName) {
+    public static void checkResultWiki(WebDriver driver, PageObjectGoogleWithSearch searchPO, String linkName) {
         searchPO.getListElement();
-        Assertions.assertTrue(searchPO.getResult().stream().anyMatch(x -> x.getText().contains(linkName)));
+
+        if (searchPO.getResult().stream().anyMatch(x -> x.getText().contains(linkName))) {
+            Assertions.assertTrue(true);
+        } else {
+            CustomUtils.getScreen(driver);
+            Assertions.fail("Результат \"" + linkName + "\" не найден");
+        }
     }
 }
