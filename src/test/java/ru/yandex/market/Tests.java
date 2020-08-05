@@ -11,8 +11,10 @@ public class Tests extends WebDriverSettings{
     public void testTask2() {
         PageObjectYandexMarketWithSearch iphone = new PageObjectYandexMarketWithSearch(chromeDriver);
 
+//        iphone.printSearchItsems();
+
         List<Map<String, Object>> resultSearch = iphone.getCollectResults();
 
-        resultSearch.stream().forEach(x -> System.out.println(x.get("VENDOR").toString()));
+        resultSearch.stream().forEach(x -> System.out.println(x.get("VENDOR").toString() + " " + x.get("MODEL").toString() + " " + x.get("PRICE").toString()));
     }
 }
