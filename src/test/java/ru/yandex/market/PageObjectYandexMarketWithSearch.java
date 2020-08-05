@@ -38,8 +38,4 @@ public class PageObjectYandexMarketWithSearch {
         }
         return collectResults;
     }
-
-    public void printSearchItsems() {
-        searchItsems.stream().forEach(x -> System.out.println(x.getText()));
-    }
 }
