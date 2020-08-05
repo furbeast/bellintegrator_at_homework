@@ -10,6 +10,7 @@ public class Tests extends WebDriverSettings{
     @Test
     public void testTask2() {
         PageObjectYandexMarketWithSearch iphone = new PageObjectYandexMarketWithSearch(chromeDriver);
+        Steps.checkOpenSite(chromeDriver, "Яндекс.Маркет");
 
         List<Map<String, Object>> resultSearch = iphone.getCollectResults();
 

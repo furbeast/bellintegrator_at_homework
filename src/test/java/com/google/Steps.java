@@ -7,13 +7,13 @@ import org.openqa.selenium.WebDriver;
 
 public class Steps {
 
-    @Step("Шаг 1. Проверка что открылся {linkName}")
-    public static void checkOpenSite(WebDriver driver, String linkName) {
-        if (driver.getCurrentUrl().contains(linkName)) {
+    @Step("Шаг 1. Проверка что открылся {pageName}")
+    public static void checkOpenSite(WebDriver driver, String pageName) {
+        if (driver.getCurrentUrl().contains(pageName)) {
             Assertions.assertTrue(true);
         } else {
             CustomUtils.getScreen(driver);
-            Assertions.fail("Ошибка при открытии страницы: " + linkName);
+            Assertions.fail("Ошибка при открытии страницы: " + pageName);
         }
     }
 
