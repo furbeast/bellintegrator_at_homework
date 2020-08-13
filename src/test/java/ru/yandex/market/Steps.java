@@ -8,8 +8,6 @@ import org.openqa.selenium.WebDriver;
 public class Steps {
     @Step("Шаг 1. Проверка что открылся {pageName}")
     public static void checkOpenSite(WebDriver driver, String pageName) {
-        System.out.println("*** 1. " + driver.getTitle().contains(pageName) + " ***");
-
         if (driver.getTitle().contains(pageName)) {
             Assertions.assertTrue(true);
         } else {
@@ -29,4 +27,6 @@ public class Steps {
             Assertions.fail("Не найдено: " + filterValue);
         }
     }
+
+//    @Step("Шаг 3. Проверка что открылся {filterValue}")
 }
