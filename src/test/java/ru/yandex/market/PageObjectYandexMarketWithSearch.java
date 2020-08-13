@@ -16,21 +16,14 @@ import java.util.NoSuchElementException;
 
 public class PageObjectYandexMarketWithSearch {
 
+    private String selectorFilterVendor = "//span[text()='Apple']";
     private String selectorLoadCircle = "//div[@class='_13-JCDb2SZ _1No7Ewj2pS']";
 
-
-
-
-    private String selectorFilterVendor = "//span[text()='Apple']";
     private String selectorResultItems = "//article[@class='_1O1OnAPlSR _29bSn5MwO8 cia-vs cia-cs']";
-
-    private String selectorFirstElementVendor = "//div[@class='_2Qo3ODl0by cia-vs']/article[1]//div[@class='_1NyIdwOZ6-']";
-    private String selectorLastElementVendor = "//div[@class='_2Qo3ODl0by cia-vs']/article[last()]//img";
-
-
     private String selectorResultVendor = ".//div[@class='_1NyIdwOZ6-']";
     private String selectorResultModel = ".//h3[@class='_3dCGE8Y9v3 _25uOAS5e4A']//span";
-    private String selectorResultPrice = ".//div[@class='_1PaCzxbbzN _3f2ZtYT7NH _2Sc2mRSDwb']//span/span[1]";
+
+    private String selectorNextPage = "//a[contains(@class, '_3T1NDSfqDx')]";
 
     private WebDriver driver;
 
@@ -55,6 +48,8 @@ public class PageObjectYandexMarketWithSearch {
         // ожидание когда кружок съебёт
         new WebDriverWait(driver, 30)
                 .until(ExpectedConditions.stalenessOf(driver.findElement(By.xpath(selectorLoadCircle))));
+
+        searchItsems = driver.findElements(By.xpath(selectorResultItems));
     }
 
     public List<Map<String, Object>> getCollectResults() {
@@ -62,10 +57,15 @@ public class PageObjectYandexMarketWithSearch {
             collectResults.add(Map.of(
                     "WEB_ELEMENT", result,
                     "VENDOR", result.findElement(By.xpath(selectorResultVendor)).getText(),
-                    "MODEL", result.findElement(By.xpath(selectorResultModel)).getText(),
-                    "PRICE", result.findElement(By.xpath(selectorResultPrice)).getText()
+                    "MODEL", result.findElement(By.xpath(selectorResultModel)).getText()
             ));
         }
         return collectResults;
+    }
+
+    public void nextPage() {
+        System.out.println(driver.findElements(By.xpath(selectorNextPage)));
+        System.out.println(driver.findElements(By.xpath(selectorNextPage)).size());
+        System.out.println(driver.findElements(By.xpath(selectorNextPage)).toString());
     }
 }

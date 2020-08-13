@@ -22,10 +22,6 @@ public class Tests extends WebDriverSettings{
         Steps.checkOpenSite(chromeDriver, "Яндекс.Маркет");
 
         iphone.selectFilter(chromeDriver, "Apple");
-//        Steps.checkFilterValue(chromeDriver, "iPhone");
-
-        List<Map<String, Object>> resultSearch = iphone.getCollectResults();
-
-        resultSearch.stream().forEach(x -> System.out.println(x.get("VENDOR").toString() + " " + x.get("MODEL").toString() + " " + x.get("PRICE").toString()));
+        Steps.checkFilterValue(iphone, "APPLE");
     }
 }
