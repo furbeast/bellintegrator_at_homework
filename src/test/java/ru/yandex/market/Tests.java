@@ -21,7 +21,11 @@ public class Tests extends WebDriverSettings{
 
         Steps.checkOpenSite(chromeDriver, "Яндекс.Маркет");
 
-        iphone.selectFilter(chromeDriver, "Apple");
-        Steps.checkFilterValue(iphone, "APPLE");
+//        String searchVendor = "Apple";      // 2 pages
+//        String searchVendor = "ZTE";        // 1 pages
+        String searchVendor = "Xiaomi";     // 3 pages
+
+        iphone.selectFilter(chromeDriver, searchVendor);
+        Steps.checkFilterValue(chromeDriver, iphone, searchVendor);
     }
 }

@@ -11,7 +11,7 @@ import java.util.Map;
 public class Steps {
     @Step("Шаг 1. Проверка что открылся {pageName}")
     public static void checkOpenSite(WebDriver driver, String pageName) {
-        if (driver.getTitle().contains(pageName)) {
+        if (driver.getTitle().toLowerCase().contains(pageName.toLowerCase())) {
             Assertions.assertTrue(true);
         } else {
             CustomUtils.getScreen(driver);
@@ -20,10 +20,7 @@ public class Steps {
     }
 
     @Step("Шаг 2. Проверка что все элементы {filterValue}")
-    public static void checkFilterValue(PageObjectYandexMarketWithSearch pageObject, String filterValue) {
-        List<Map<String, Object>> resultSearch = pageObject.getCollectResults();
-        resultSearch.stream().forEach(x -> Assertions.assertEquals(x.get("VENDOR"), filterValue));
-
-        pageObject.nextPage();
+    public static void checkFilterValue(WebDriver driver, PageObjectYandexMarketWithSearch pageObject, String filterValue) {
+        Assertions.assertTrue(pageObject.checkResultAllPages(driver, filterValue));
     }
 }
