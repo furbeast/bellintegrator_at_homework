@@ -2,12 +2,9 @@ package ru.yandex.market;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
-import java.util.Map;
 
 public class Tests extends WebDriverSettings{
 
@@ -21,11 +18,11 @@ public class Tests extends WebDriverSettings{
 
         Steps.checkOpenSite(chromeDriver, "Яндекс.Маркет");
 
-//        String searchVendor = "Apple";      // 2 pages
 //        String searchVendor = "ZTE";        // 1 pages
-        String searchVendor = "Xiaomi";     // 3 pages
+        String searchVendor = "Apple";      // 2 pages
+//        String searchVendor = "Xiaomi";     // 3 pages
 
-        iphone.selectFilter(chromeDriver, searchVendor);
+        iphone.selectFilter(searchVendor);
         Steps.checkFilterValue(chromeDriver, iphone, searchVendor);
     }
 }

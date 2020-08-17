@@ -21,8 +21,8 @@ public class WebDriverSettings {
         chromeDriver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
     }
 
-//    @AfterEach
-//    public void closeTest() {
-//        chromeDriver.quit();
-//    }
+    @AfterEach
+    public void closeTest() {
+        chromeDriver.quit();
+    }
 }
