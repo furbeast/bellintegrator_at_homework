@@ -19,8 +19,8 @@ public class Tests extends WebDriverSettings{
         Steps.checkOpenSite(chromeDriver, "Яндекс.Маркет");
 
 //        String searchVendor = "ZTE";        // 1 pages
-        String searchVendor = "Apple";      // 2 pages
-//        String searchVendor = "Xiaomi";     // 3 pages
+//        String searchVendor = "Apple";      // 2 pages
+        String searchVendor = "Xiaomi";     // 3 pages
 
         iphone.selectFilter(searchVendor);
         Steps.checkFilterValue(chromeDriver, iphone, searchVendor);

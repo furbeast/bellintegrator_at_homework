@@ -24,6 +24,7 @@ public class PageObjectYandexMarketWithSearch {
     public PageObjectYandexMarketWithSearch(WebDriver driver) {
         this.driver = driver;
         driver.get("https://market.yandex.ru/catalog--smartfony/16814639/");
+//        driver.get("https://2ip.ru/");
     }
 
     public void selectFilter(String filterName) {
@@ -53,9 +54,9 @@ public class PageObjectYandexMarketWithSearch {
 
         do {
             if (page >= 2) {
-                driver.get(currentURL + "&page=" + page);
+                driver.findElement(By.xpath("//a[@aria-label='Страница " + page + "']")).click();
+                waitLoadBefore(selectorLoadShadow);
             }
-            waitLoadBefore();
 
             List<Map<String, Object>> resultSearch = getCollectResults();
 
