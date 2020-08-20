@@ -24,7 +24,6 @@ public class PageObjectYandexMarketWithSearch {
     public PageObjectYandexMarketWithSearch(WebDriver driver) {
         this.driver = driver;
         driver.get("https://market.yandex.ru/catalog--smartfony/16814639/");
-//        driver.get("https://2ip.ru/");
     }
 
     public void selectFilter(String filterName) {

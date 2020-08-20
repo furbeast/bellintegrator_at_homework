@@ -13,14 +13,14 @@ public class Tests extends WebDriverSettings{
         PageObjectYandexMarketWithSearch iphone = new PageObjectYandexMarketWithSearch(chromeDriver);
 
         // костыль от капчи
-        new WebDriverWait(chromeDriver, 30)
-                .until(ExpectedConditions.presenceOfElementLocated(By.className("_3wPGpzKmmn")));
+        /*new WebDriverWait(chromeDriver, 30)
+                .until(ExpectedConditions.presenceOfElementLocated(By.className("_3wPGpzKmmn")));*/
 
         Steps.checkOpenSite(chromeDriver, "Яндекс.Маркет");
 
 //        String searchVendor = "ZTE";        // 1 pages
-//        String searchVendor = "Apple";      // 2 pages
-        String searchVendor = "Xiaomi";     // 3 pages
+        String searchVendor = "Apple";      // 2 pages
+//        String searchVendor = "Xiaomi";     // 3 pages
 
         iphone.selectFilter(searchVendor);
         Steps.checkFilterValue(chromeDriver, iphone, searchVendor);
