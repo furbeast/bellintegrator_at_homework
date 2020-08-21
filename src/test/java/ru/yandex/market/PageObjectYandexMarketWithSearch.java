@@ -27,7 +27,7 @@ public class PageObjectYandexMarketWithSearch {
     }
 
     public void selectFilter(String filterName) {
-        waitLoadBefore();
+//        waitLoadBefore();
         driver.findElement(By.xpath("//span[text()='" + filterName + "']")).click();     // выбор в фильтре
         waitLoadBefore(selectorLoadShadow);
     }

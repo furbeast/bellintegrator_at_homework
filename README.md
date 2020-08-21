@@ -24,7 +24,7 @@
 ### Домашнее задание 3 (Docker)
 > - [X] Задание 1
 >> Установить Docker и Selenoid
-> - [X] Задание 2
+> - [X] Задание 2 `ru/yandex/market/TestsDocker.java - testTask3`
 >> Переписать предыдущие ДЗ на Selenoid
 
 ### Домашнее задание 4 (API)

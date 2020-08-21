@@ -1,15 +1,11 @@
 package ru.yandex.market;
 
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-
-public class Tests extends WebDriverSettings {
+public class TestsDocker extends WebDriverSettingsDocker{
 
     @Test
-    public void testTask2() {
+    public void testTask3() {
         PageObjectYandexMarketWithSearch iphone = new PageObjectYandexMarketWithSearch(chromeDriver);
 
         // костыль от капчи
