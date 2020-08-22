@@ -11,26 +11,26 @@ import java.nio.file.Paths;
 
 public class CustomUtils {
     @Attachment
-    public static byte[] getScreen(WebDriver driver){
+    public static byte[] getScreen(WebDriver driver) {
         File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(screenshot,new File("src/main/resources/screen.png"));
-            return Files.readAllBytes(Paths.get("src/main/resources","screen.png"));
-        }catch (Exception e){
+            FileUtils.copyFile(screenshot, new File("src/main/resources/ru.yandex.market/screen.png"));
+            return Files.readAllBytes(Paths.get("src/main/resources/ru.yandex.market","screen.png"));
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return new byte[0];
     }
 
     @Attachment
-    public static byte[] getScreen(WebDriver driver, WebElement element){
+    public static byte[] getScreen(WebDriver driver, WebElement element) {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
         File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(screenshot,new File("src/main/resources/screen.png"));
-            return Files.readAllBytes(Paths.get("src/main/resources","screen.png"));
-        }catch (Exception e){
+            FileUtils.copyFile(screenshot, new File("src/main/resources/ru.yandex.market/screen.png"));
+            return Files.readAllBytes(Paths.get("src/main/resources/ru.yandex.market","screen.png"));
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return new byte[0];
