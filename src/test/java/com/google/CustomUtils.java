@@ -17,8 +17,8 @@ public class CustomUtils {
     public static byte[] getScreen(WebDriver driver){
         File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(screenshot,new File("src/main/resources/com.google/screen.png"));
-            return Files.readAllBytes(Paths.get("src/main/resources/com.google","screen.png"));
+            FileUtils.copyFile(screenshot,new File("src/main/resources/com_google/screen.png"));
+            return Files.readAllBytes(Paths.get("src/main/resources/com_google","screen.png"));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -31,8 +31,8 @@ public class CustomUtils {
         actions.moveToElement(element).build().perform();
         File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(screenshot,new File("src/main/resources/com.google/screen.png"));
-            return Files.readAllBytes(Paths.get("src/main/resources/com.google","screen.png"));
+            FileUtils.copyFile(screenshot,new File("src/main/resources/com_google/screen.png"));
+            return Files.readAllBytes(Paths.get("src/main/resources/com_google","screen.png"));
         }catch (Exception e){
             e.printStackTrace();
         }

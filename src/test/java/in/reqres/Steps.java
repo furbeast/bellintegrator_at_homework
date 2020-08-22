@@ -2,23 +2,10 @@ package in.reqres;
 
 import io.qameta.allure.Step;
 import io.restassured.path.json.JsonPath;
-import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import io.restassured.specification.ResponseSpecification;
-import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.tika.io.FilenameUtils;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.testng.Assert;
-import org.testng.TestRunner;
 
-import java.io.File;
-import java.net.URI;
-import java.net.URL;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,8 +39,7 @@ public class Steps {
             if (listAvatar.get(i).equals(listAvatar.get(0))) {
                 Assert.assertTrue(true);
             } else {
-                // прикрутить сохранение json в файл и прикрутить к Allure
-
+                CustomUtils.getJson(jsonPath);
                 Assert.fail("Аватары пользователей различны");
             }
         }

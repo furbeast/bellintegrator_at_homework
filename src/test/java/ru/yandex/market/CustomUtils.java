@@ -14,8 +14,8 @@ public class CustomUtils {
     public static byte[] getScreen(WebDriver driver) {
         File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(screenshot, new File("src/main/resources/ru.yandex.market/screen.png"));
-            return Files.readAllBytes(Paths.get("src/main/resources/ru.yandex.market","screen.png"));
+            FileUtils.copyFile(screenshot, new File("src/main/resources/ru_yandex_market/screen.png"));
+            return Files.readAllBytes(Paths.get("src/main/resources/ru_yandex_market","screen.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -28,8 +28,8 @@ public class CustomUtils {
         actions.moveToElement(element).build().perform();
         File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(screenshot, new File("src/main/resources/ru.yandex.market/screen.png"));
-            return Files.readAllBytes(Paths.get("src/main/resources/ru.yandex.market","screen.png"));
+            FileUtils.copyFile(screenshot, new File("src/main/resources/ru_yandex_market/screen.png"));
+            return Files.readAllBytes(Paths.get("src/main/resources/ru_yandex_market","screen.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
