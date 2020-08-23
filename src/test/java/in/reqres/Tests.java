@@ -11,26 +11,29 @@ public class Tests {
 
     @Test
     public void testTask4_1() {
-        Specification.installSpec(Specification.requestSpec(), Specification.responseSpec());
+//        Specification.installSpec(Specification.requestSpec(), Specification.responseSpec());
+        Specification.installSpec(Specification.requestSpec());
         JsonPath userList = Steps.getUsersList().jsonPath();
         Steps.matchAvatars(userList);
     }
 
     @Test
     public void testTask4_2a() {
-        Specification.installSpec(Specification.requestSpec(), Specification.responseSpec());
-        JsonPath registrationUser = Steps.registerUser("eve.holt@reqres.in", "pistol").jsonPath();
+//        Specification.installSpec(Specification.requestSpec(), Specification.responseSpec());
+        Specification.installSpec(Specification.requestSpec());
+        Steps.registerUser("eve.holt@reqres.in", "pistol");
     }
 
     @Test
     public void testTask4_2b() {
         Specification.installSpec(Specification.requestSpec());
-        JsonPath registrationUser = Steps.registerUser("sydney@fife").jsonPath();
+        Steps.registerUser("sydney@fife");
     }
 
     @Test
     public void testTask4_3() {
-        Specification.installSpec(Specification.requestSpec(), Specification.responseSpec());
+//        Specification.installSpec(Specification.requestSpec(), Specification.responseSpec());
+        Specification.installSpec(Specification.requestSpec());
         JsonPath getList = Steps.getList().jsonPath();
         Steps.checkList(getList);
     }

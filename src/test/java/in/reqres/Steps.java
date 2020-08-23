@@ -25,6 +25,13 @@ public class Steps {
                 .get("/api/users?page=2")
                 .then()
 //                .log().all()
+                .body("page", equalTo(2))
+                .body("data.id.", notNullValue())
+                .body("data.email.", notNullValue())
+                .body("data.first_name.", notNullValue())
+                .body("data.last_name.", notNullValue())
+                .body("data.avatar.", notNullValue())
+                .statusCode(200)
                 .extract().response();
         return response;
     }
@@ -62,6 +69,7 @@ public class Steps {
 //                .log().all()
                 .body("id", notNullValue())
                 .body("token", notNullValue())
+                .statusCode(200)
                 .extract().response();
 
         return response;
@@ -93,6 +101,11 @@ public class Steps {
                 .get("/api/unknown")
                 .then()
 //                .log().all()
+                .body("data.id", notNullValue())
+                .body("data.name", notNullValue())
+                .body("data.year", notNullValue())
+                .body("data.color", notNullValue())
+                .statusCode(200)
                 .extract().response();
         return response;
     }
@@ -108,16 +121,4 @@ public class Steps {
             Assert.fail("Данные не отсортированны по годам");
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }
